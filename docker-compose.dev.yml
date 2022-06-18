@@ -5,11 +5,17 @@ services:
     image: sailsconf:node-app
     depends_on:
       - mysql
-    entrypoint: sails lift
+    entrypoint: node app.js
     env_file:
       - .env
     volumes:
       - .:/srv
+
+  node-worker:
+    image: sailsconf:node-app
+    volumes:
+      - .:/srv
+    working_dir: /srv/integration-tests
 
   mysql:
     image: mariadb:10.2
@@ -17,9 +23,9 @@ services:
     expose:
       - '3306'
     ports:
-      - '3307:3306'
+      - '3308:3306'
 #    volumes:
 #      - ./docker/mysql/init:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: sails
+      MYSQL_DATABASE: sailsconf

@@ -10,7 +10,7 @@ NODE_WORKER_IMG=sailsconf:node-worker
 # Use the docker buildkit enhancements, see https://docs.docker.com/develop/develop-images/build_enhancements/
 export DOCKER_BUILDKIT=1
 
-EXPOSE_PORT?=3000
+EXPOSE_PORT?=1337
 
 # Run Docker compose (with CI overrides)
 DOCKER_COMPOSE:=EXPOSE_PORT=$(EXPOSE_PORT) \

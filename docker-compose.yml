@@ -3,9 +3,9 @@ services:
 
   node:
     image: ghcr.io/actuallyconnor/sailsconf:latest
-    entrypoint: npm run start:prod
+    entrypoint: NODE_ENV=production node app.js
     expose:
-      - 3000
+      - 1337
     ports:
-      - '3000:3000'
+      - '1337:1337'
     working_dir: /srv
